@@ -1,0 +1,8 @@
+<!-- Welcome to the PyPassword Generator!
+How many letters would you like in your password?
+5
+How many symbols would you like?
+3
+How many numbers would you like?
+2
+Your password is: c5M)!i2p%f -->
