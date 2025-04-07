@@ -65,7 +65,7 @@ while not game_over:
     print("Word to guess: " + display)
 
     # TODO-8 - If guess is not a letter in the chosen_word, then reduce lives by 1.
-    #  If lives foes down to 0 then the game should end, and it should print "You lose".
+    #  If lives goes down to 0 then the game should end, and it should print "You lose".
 
     if guess not in chosen_word:
         lives -= 1
