@@ -13,12 +13,10 @@ password = "bazfewpgskkpfpgc"
 # HINT 1: Only the month and day matter.
 today = dt.datetime.now()
 today_tuple = (today.month, today.day)
-# print(today_tuple)
 
 # TODO-3 - Read .csv_file and create a dataframe.
 # HINT: Make sure one of the entries matches today's date for testing purposes.
 data_frame = pandas.read_csv("birthdays.csv")
-# print(data_frame)
 
 # TODO-4 - You could create a dictionary from birthdays.csv that looks like this:
 # birthays_dict = {
@@ -26,7 +24,6 @@ data_frame = pandas.read_csv("birthdays.csv")
 # }
 
 birthday_dict = {(row.month, row.day): row for (index, row) in data_frame.iterrows()}
-# print(birthday_dict)
 
 # TODO-5 - Then you could compare and see if today's month/day matches one of the keys in birthday_dict
 if today_tuple in birthday_dict:
