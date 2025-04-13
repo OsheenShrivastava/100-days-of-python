@@ -3,6 +3,7 @@ import datetime as dt
 import random
 from smtplib import SMTP
 
+# NOTE: Turn ON 2 step verification,Create app password and edit the password here
 my_email = "pythontestmail123456789@gmail.com"
 password = "bazfewpgskkpfpgc"
 
