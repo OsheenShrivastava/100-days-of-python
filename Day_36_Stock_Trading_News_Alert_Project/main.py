@@ -78,40 +78,40 @@ else:
 Percentage_difference = round((Difference / float(Yesterday_closing)) * 100)
 
 # TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
-#if abs(Percentage_difference) > -1:
-# print("Get News")
+if abs(Percentage_difference) > 5:
+    print("Get News")
 
-## STEP 2: https://newsapi.org/
-# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
+    ## STEP 2: https://newsapi.org/
+    # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
 
-# TODO 6. - Instead of printing ("Get News"), use the News API to get articles related to the COMPANY_NAME.
-news_params = {
-    "q": COMPANY_NAME,
-    "apiKey": NEWS_API_KEY,
-}
+    # TODO 6. - Instead of printing ("Get News"), use the News API to get articles related to the COMPANY_NAME.
+    news_params = {
+        "q": COMPANY_NAME,
+        "apiKey": NEWS_API_KEY,
+    }
 
-news_response = requests.get(NEWS_ENDPOINT, params=news_params)
-articles = news_response.json()["articles"]
+    news_response = requests.get(NEWS_ENDPOINT, params=news_params)
+    articles = news_response.json()["articles"]
 
-# TODO 7. - Use Python slice operator to create a list that contains the first 3 articles.
-#  Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
-three_articles = articles[:3]
+    # TODO 7. - Use Python slice operator to create a list that contains the first 3 articles.
+    #  Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
+    three_articles = articles[:3]
 
-## STEP 3: Use twilio.com/docs/sms/quickstart/python
-# to send a separate message with each article's title and description to your phone number.
+    ## STEP 3: Use twilio.com/docs/sms/quickstart/python
+    # to send a separate message with each article's title and description to your phone number.
 
-# TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
-formatted_articles = [f"{STOCK_NAME}: {up_down}{Percentage_difference}%\nHeadline: {article['title']}.\nBrief: {article['description']}"for article in three_articles]
-print(formatted_articles)
+    # TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
+    formatted_articles = [f"{STOCK_NAME}: {up_down}{Percentage_difference}%\nHeadline: {article['title']}.\nBrief: {article['description']}"for article in three_articles]
+    print(formatted_articles)
 
-# TODO 9. - Send each article as a separate message via Twilio.
-client = Client(account_sid, auth_token)
+    # TODO 9. - Send each article as a separate message via Twilio.
+    client = Client(account_sid, auth_token)
 
-# Optional TODO: Format the message like this:
-for article in formatted_articles:
-    # Whatsapp message
-    message = client.messages.create(
-        body=article,
-        from_="whatsapp:Your Twilio Whatsapp Number ",
-        to="whatsapp:Your Mobile Number",
-    )
+    # Optional TODO: Format the message like this:
+    for article in formatted_articles:
+        # Whatsapp message
+        message = client.messages.create(
+            body=article,
+            from_="whatsapp:Your Twilio Whatsapp Number ",
+            to="whatsapp:Your Mobile Number",
+        )
