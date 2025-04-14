@@ -4,8 +4,8 @@ import random
 from smtplib import SMTP
 
 # NOTE: Turn ON 2 step verification,Create app password and edit the password here
-my_email = "pythontestmail123456789@gmail.com"
-password = "bazfewpgskkpfpgc"
+my_email = "Your Email"
+password = "Your app password"
 
 # TODO-1 - Update the birthdays.csv with your friends & family's details
 
