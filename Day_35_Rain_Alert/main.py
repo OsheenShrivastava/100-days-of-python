@@ -72,7 +72,7 @@ if will_rain:
     # Method 2 - Whatsapp message
     # message = client.messages.create(
     #     body="It's going to rain today. Remember to bring an ☔",
-    #     from_="whatsapp:'Your Twilio free Number'",
+    #     from_="whatsapp:'Your Whatsapp Twilio free Number'",
     #     to="whatsapp:'Your Mobile Number'",
     # )
 

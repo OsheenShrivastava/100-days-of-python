@@ -112,6 +112,6 @@ if abs(Percentage_difference) > 5:
         # Whatsapp message
         message = client.messages.create(
             body=article,
-            from_="whatsapp:Your Twilio Whatsapp Number ",
+            from_="whatsapp:Your Whatsapp Twilio free Number ",
             to="whatsapp:Your Mobile Number",
         )
