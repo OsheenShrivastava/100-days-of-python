@@ -3,8 +3,8 @@ import random
 from smtplib import SMTP
 from email.message import EmailMessage
 
-my_email = "pythontestmail123456789@gmail.com"
-password = "bazfewpgskkpfpgc"
+my_email = "Your Email"
+password = "Your app password"
 
 # TODO-1 - Obtain current day of the week using datatime module
 now = dt.datetime.now()
