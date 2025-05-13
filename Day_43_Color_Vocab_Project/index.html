@@ -1,0 +1,51 @@
+<!-- Write your code below -->
+<!-- TODO-1 - Define doc type declaration as html -->
+<!-- TODO-2 - Define html element and set language as english -->
+<!-- TODO-3 - Add head element. Inside head define char set encoding as "UTF-8",Title of website as 
+ "Spanish Vocablury" -->
+<!-- TODO-4 - Create a CSS file and incorporate it as an external stylesheet in the head section -->
+<!-- TODO-5 - Add a body element and in it add h1,h2 tags as is is for headings -->
+<!-- TODO-6 - Inside style.css create a class named "color-title" and change all the color titles to have 
+ "font-weight: normal;. Add this class to all h2's -->
+<!-- TODO-7 - Use CSS to style each of the color titles to meaning i.e., Find the meaning of Rojo,Azul,
+ Anaranjado,Verde and Amarillo color names in english. Change the color of title to its respective color 
+ name found in english using id selector. Create individual id selector for each color name to change its 
+ color and apply to all h2's -->
+<!-- TODO-8 - Add img element, define its source as paths to respective color png and add alt text. -->
+<!-- TODO-9 - Use CSS (not HTML) to make all the images 200px heigh and 200px wide. For this add height and
+ width to only image element in style.css 
+ Hint: 
+ https://developer.mozilla.org/en-US/docs/Web/CSS/height
+ https://developer.mozilla.org/en-US/docs/Web/CSS/width
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Spanish Vocabulary</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <h1>Colors</h1>
+  <h2>Learn the colors in Spanish!</h2>
+  <h2 class="color-title" id="red">Rojo</h2>
+  <img class="color" src="./assets/images/red.png" alt="red" />
+
+  <h2 class="color-title" id="blue">Azul</h2>
+  <img src="./assets/images/blue.png" alt="blue" />
+
+  <h2 class="color-title" id="orange">Anaranjado</h2>
+  <img src="./assets/images/orange.png" alt="orange" />
+
+  <h2 class="color-title" id="green">Verde</h2>
+  <img src="./assets/images/green.png" alt="green" />
+
+  <h2 class="color-title" id="yellow">Amarillo</h2>
+  <img src="./assets/images/yellow.png" alt="yellow" />
+</body>
+
+</html>
