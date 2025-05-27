@@ -1,0 +1,52 @@
+ 
+<!-- TODO-1 - Create a motivational post website. But it must have the following features: -->
+<!-- TODO-2 - Define doc type declaration as html -->
+<!-- TODO-3 - Define html element and set language as english -->
+<!-- TODO-4 - Add head element. Inside head define char set encoding as "UTF-8",Title of 
+website as "Motivational Meme" -->
+<!-- TODO-5 - Create a CSS file and incorporate it as an external stylesheet in the head section -->
+<!-- TODO-6 - Add links to fonts in head telling the browser to start early connections to Google Fonts’ servers. -->
+<!-- TODO-7 - Add a body element and in it add div element -->
+<!-- TODO-8 - Create a class named poster in style.css. Add these parameters color: white;
+width: 50%;
+margin-left: 25%;
+margin-top: 100px;
+font-family: "Libre Baskerville", serif;
+text-align: center; 
+Use this link for font https://fonts.google.com/specimen/Libre+Baskerville -->
+<!-- TODO-9 - Apply poster to div of body element -->
+<!-- TODO-10 - Add image element and source the image from assests folder. Make sure to add below properties to image:
+Add alt text for image
+Set the image to have a width of 100% so it fills the div. 
+Create id named border in style.css and create a border of 5px solid white. Call it in img element. -->
+<!--TODO-11 - Add h1 element to body and add its text as "that special moment". -->
+<!-- TODO-12 - Create id named h1_parameters in style.css and below parameters:
+font-size: 13;
+text-transform: uppercase; 
+Use this link to make h1 uppercase us css https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform -->
+<!-- TODO-13 - Call h1_parameters in h1 element -->
+<!-- TODO-14 - Add p element to body and add its text as "When you find the perfact avocado at the supermarket". -->
+<!-- TODO-15 - Create id named h2_parameters in style.css and add font-size: 4.7; -->
+<!-- TODO-16 - Call h2_parameters in p element -->
+<!-- TODO-17 - Create html element in style.css and add background color as white using background-color: black; -->
+  
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Motivational Meme</title>
+    <link href="./style.css" rel="stylesheet"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@400..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="poster">
+      <img src="./assets/images/daenerys.jpeg" alt="Motivational Meme" width="100%" id="border"/>
+      <h1 id="h1_parameters">that special moment</h1>
+      <p id="h2_parameters">When you find the perfact avocado at the supermarket</p>
+    </div>
+  </body>
+</html>
