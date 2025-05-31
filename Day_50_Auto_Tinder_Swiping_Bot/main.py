@@ -8,7 +8,7 @@ import time
 
 # TODO-2 - Store Login details of Facebook as Global Variables
 
-USERNAME = "Your Username"
+USERNAME = "Your Email Id"
 PASSWORD = "Your Password"
 
 # TODO-3 - Keep chrome browser open after program finishes
@@ -24,7 +24,7 @@ driver.get("https://tinder.com/")
 
 time.sleep(5)
 
-I_Accept = driver.find_element(By.XPATH, value='//*[@id="c-1215031839"]/div/div[2]/div/div/div[1]/div[1]/button')
+I_Accept = driver.find_element(By.XPATH, value='//button[.//div[text()="I accept"]]')
 I_Accept.click()
 
 time.sleep(5)
@@ -39,7 +39,7 @@ time.sleep(5)
 # TODO-6 - Click on More Options
 
 try:
-    More_Options_Button = driver.find_element(By.XPATH, value='//*[@id="c1351554381"]/div/div/div/div[1]/div/div/div[2]/div[2]/span/button')
+    More_Options_Button = driver.find_element(By.XPATH, value='//button[contains(text(), "More Options")]')
     More_Options_Button.click()
 
     time.sleep(1)
@@ -48,7 +48,7 @@ try:
     # TODO-7 - Click on Login with Facebook Option
 
     # After clicking "More Options", click "Log in with Facebook" button
-    FB_Login_Button = driver.find_element(By.XPATH, value='//*[@id="c1351554381"]/div/div/div/div[1]/div/div/div[2]/div[2]/span/div[2]/button')
+    FB_Login_Button = driver.find_element(By.XPATH, value='//button[.//div[text()="Log in with Facebook"]]')
     FB_Login_Button.click()
 
     print("Clicked 'Log in with Facebook' button after 'More Options'.")
@@ -56,7 +56,7 @@ try:
 except NoSuchElementException:
     # If "More Options" button not found, try to click "Log in with Facebook" directly
     try:
-        FB_Login_Button = driver.find_element(By.XPATH,value='//*[@id="c1351554381"]/div/div/div/div[1]/div/div/div[2]/div[2]/span/div[2]/button')
+        FB_Login_Button = driver.find_element(By.XPATH,value='//button[.//div[text()="Log in with Facebook"]]')
         FB_Login_Button.click()
 
         time.sleep(5)
@@ -99,15 +99,17 @@ except (TimeoutException, NoSuchElementException):
 
 time.sleep(10)
 try:
-    Continue_as_Skopa = driver.find_element(By.XPATH, value='//div[normalize-space(.)="Continue as Skopa"]')
+    Continue_as_Skopa = driver.find_element(By.XPATH, value='//div[@role="button" and .//span[text()="Continue as Skopa"]]')
     Continue_as_Skopa.click()
 
     print("Clicked 'Continue as Skopa' button.")
 
-except ElementClickInterceptedException:
+except (ElementClickInterceptedException, NoSuchElementException):
     input("Solve CAPTCHA and press Enter...")
 
-    Continue_as_Skopa = driver.find_element(By.XPATH, value='//div[normalize-space(.)="Continue as Skopa"]')
+    time.sleep(5)
+
+    Continue_as_Skopa = driver.find_element(By.XPATH, value='//div[@role="button" and .//span[text()="Continue as Skopa"]]')
     Continue_as_Skopa.click()
 
     print("Clicked 'Continue as Skopa' button.")
@@ -124,12 +126,12 @@ try:
 
     time.sleep(5)
 
-    Allow = driver.find_element(By.XPATH, value='//*[@id="c1351554381"]/div/div/div/div/div[3]/button[1]')
+    Allow = driver.find_element(By.XPATH, value='//button[.//div[text()="Allow"]]')
     Allow.click()
 
     time.sleep(5)
 
-    Miss_out = driver.find_element(By.XPATH, value='//*[@id="c1351554381"]/div/div/div/div/div[3]/button[2]')
+    Miss_out = driver.find_element(By.XPATH, value='//button[.//div[text()="I’ll miss out"]]')
     Miss_out.click()
 
     time.sleep(5)
@@ -146,12 +148,12 @@ except (TimeoutException, NoSuchElementException):
 
     time.sleep(5)
 
-    Allow = driver.find_element(By.XPATH, value='//*[@id="c1351554381"]/div/div/div/div/div[3]/button[1]')
+    Allow = driver.find_element(By.XPATH, value='//button[.//div[text()="Allow"]]')
     Allow.click()
 
     time.sleep(5)
 
-    Miss_out = driver.find_element(By.XPATH, value='//*[@id="c1351554381"]/div/div/div/div/div[3]/button[2]')
+    Miss_out = driver.find_element(By.XPATH, value='//button[.//div[text()="I’ll miss out"]]')
     Miss_out.click()
 
     time.sleep(5)
@@ -167,14 +169,14 @@ for n in range(100):
 
         time.sleep(5)
 
-    except ElementClickInterceptedException:
+    except (ElementClickInterceptedException, NoSuchElementException):
         try:
-            input("Solve CAPTCHA and press Enter...")
-            time.sleep(5)
+            # input("Solve CAPTCHA and press Enter...")
+            time.sleep(10)
 
             # TODO-15 - Click on Not Interested when Tinder asks to add it on Home Scree
 
-            Not_Interested_Button = driver.find_element(By.XPATH, value='//div[contains(@class, "button-container")]//button[contains(., "Not Interested")]')
+            Not_Interested_Button = driver.find_element(By.XPATH, value='//button[.//div[text()="Not interested"]]')
             Not_Interested_Button.click()
 
             # wait for 2 secs and then retry
@@ -189,22 +191,4 @@ for n in range(100):
         except Exception as e:
             print("'Not Interested' button not found or not clickable:", e)
 
-    except NoSuchElementException:
-        print("'Not interested' button not found.")
-    except Exception as e:
-        print("Unexpected error while handling popup:", e)
-
 driver.quit()
-
-
-
-
-
-
-
-
-
-
-
-
-
