@@ -4,10 +4,10 @@ from flask import Flask, render_template, request
 import requests
 from smtplib import SMTP
 
-API_ENDPOINT = "https://api.npoint.io/506dd751583c30385e69"
+API_ENDPOINT = "Your Endpoint"
 
-MY_EMAIL = "pythontestmail123456789@gmail.com"
-PASSWORD = "bazfewpgskkpfpgc"
+MY_EMAIL = "Your Email"
+PASSWORD = "Your Password"
 
 response = requests.get(url=API_ENDPOINT)
 print(response.raise_for_status())
@@ -48,7 +48,7 @@ def contact():
             connection.starttls()
             connection.login(user=MY_EMAIL, password=PASSWORD)
             Email_message = f"Subject:New Message\n\n Name: {Name} \n Email: {Email} \n Phone: {Phone} \n Message: {Message}"
-            connection.sendmail(from_addr=MY_EMAIL, to_addrs="pythontestmail123456@gmail.com", msg=Email_message)
+            connection.sendmail(from_addr=MY_EMAIL, to_addrs="Your Email", msg=Email_message)
 
         return render_template("contact.html", message_sent=True)
     else:
