@@ -79,10 +79,10 @@ time.sleep(5)
 # TODO-9 - Enter Facebook Login details i.e., Email Id and Password
 
 Email = driver.find_element(By.NAME, value="email")
-Email.send_keys("pythontestmail123456789@gmail.com")
+Email.send_keys("Your Email")
 
 Password = driver.find_element(By.NAME, value="pass")
-Password.send_keys("Pass@1234")
+Password.send_keys("Your Password")
 
 # TODO-10 - Click on Login Button
 
