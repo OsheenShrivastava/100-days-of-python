@@ -34,8 +34,7 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # TODO-3 - Open the website
 
-driver.get("https://www.linkedin.com/jobs/search/?currentJobId=4228121914&distance=25&f_AL=true&geoId=102713980&"
-           "keywords=preschool%20teacher&origin=JOB_SEARCH_PAGE_SEARCH_BUTTON&refresh=true")
+driver.get("Your Linked In link")
 
 time.sleep(2)
 
