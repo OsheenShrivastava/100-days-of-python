@@ -1,4 +1,3 @@
-
 # TODO-1 - Import Flask, render_template, redirect, url_for from flask module
 # TODO-2 - Initialize Flask with app and create a home route.
 # TODO-3 - Render template index.html.
@@ -39,6 +38,8 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap5
 from smtplib import SMTP
+import os
+from dotenv import load_dotenv
 
 class ContactForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
@@ -49,8 +50,12 @@ app = Flask(__name__)
 app.secret_key = "any-string-you-want-just-keep-it-secret"
 bootstrap = Bootstrap5(app)
 
-my_email = "pythontestmail123456@gmail.com"
-password  = "tjjw wylh iski ptxp"
+# Load the .env file
+load_dotenv()
+
+# Access the environment variables
+my_email = os.environ["EMAIL"]
+password = os.environ["APP_PASSWORD"]
 
 
 @app.route('/')
