@@ -1,4 +1,4 @@
-H
+<!-- H
 123345
 468
 123456789
@@ -19,4 +19,4 @@ Number of characters in your name: 6
 31
 30.85
 1
-Your score is 1
+Your score is 1 -->
