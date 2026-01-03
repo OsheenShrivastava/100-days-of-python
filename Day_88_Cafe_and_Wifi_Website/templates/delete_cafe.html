@@ -1,0 +1,23 @@
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% include "header.html" %}
+
+<!-- 🔔 Flash Notification -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div id="flash-container">
+      {% for category, message in messages %}
+        <div class="flash-msg {{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<div class="container delete_cafe">
+    <h2>Delete Cafe: {{ cafe.name }}</h2>
+    {{ render_form(form) }}
+</div>
+
+{% include "footer.html" %}

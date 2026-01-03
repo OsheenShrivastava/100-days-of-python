@@ -1,0 +1,120 @@
+{% include "header.html" %}
+
+<!-- 🔔 Flash Notification -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div id="flash-container">
+      {% for category, message in messages %}
+        <div class="flash-msg {{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+<!--Cards Sections for Cafes-->
+<div class="cards-grid px-5 py-5">
+    {% for cafe in cafes: %}
+        <div class="card card-section px-4 py-4">
+
+            <!-- Image wrapper -->
+            <div class="card-img-wrapper">
+                <img src=" {{ cafe.img_url }}" class="card-img-wrapper" alt="{{ cafe.name }}">
+            </div>
+
+            <!-- Card Content -->
+            <div class="card-body">
+                <h1 class="card-title">{{cafe.name}}</h1>
+                <hr/>
+                <p>Location
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="#8B3E2F"
+                         style="vertical-align: -0.15em; margin: 0 -0.1em;">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5
+                        0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                    </svg> :
+                    <a href="{{ cafe.map_url }}">{{ cafe.location }}</a></p>
+                <p>Number of seats : {{ cafe.seats }}</p>
+                <p>Toilet
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"
+                         style="vertical-align:-0.15em; margin: 0 0.01em;">
+                        <!-- tank -->
+                        <rect x="7" y="2" width="10" height="5" rx="1.5" fill="#2F2F2F"/>
+                        <!-- bowl outer -->
+                        <path d="M5 9h14v4a7 7 0 0 1-7 7h-2a7 7 0 0 1-7-7z" fill="#8B3E2F"/>
+                        <!-- bowl inner -->
+                        <path d="M7 10h10v3a5 5 0 0 1-5 5h0a5 5 0 0 1-5-5z" fill="#79CFC4"/>
+                        <!-- base -->
+                        <rect x="9" y="20" width="6" height="2" rx="1" fill="#2F2F2F"/>
+                    </svg> :
+                    {% if cafe.has_toilet: %}
+                        Yes
+                    {% else: %}
+                        No
+                    {% endif %}
+                </p>
+                <p>WiFi
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"
+                             style="vertical-align:-0.15em; margin: 0 0.1em;">
+                        <!-- outer arc -->
+                        <path d="M2 8a16 16 0 0 1 20 0" fill="none" stroke="#8B3E2F" stroke-width="2"
+                              stroke-linecap="round"/>
+                        <!-- middle arc -->
+                        <path d="M5 11a11 11 0 0 1 14 0" fill="none" stroke="#79CFC4" stroke-width="2"
+                              stroke-linecap="round"/>
+                        <!-- inner arc -->
+                        <path d="M8 14a6 6 0 0 1 8 0" fill="none" stroke="#3A5F7D" stroke-width="2" stroke-linecap="round"/>
+                        <!-- dot -->
+                        <circle cx="12" cy="18" r="1.5" fill="#2F2F2F"/>
+                    </svg> :
+                    {% if cafe.has_wifi: %}
+                        Yes
+                    {% else: %}
+                        No
+                    {% endif %}
+                </p>
+                <p>Sockets
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"
+                         style="vertical-align:-0.15em; margin: 0 -0.3em;">
+                        <!-- plug body -->
+                        <rect x="8" y="7" width="8" height="6" rx="1.5" fill="#8B3E2F"/>
+                        <!-- left prong -->
+                        <rect x="9" y="3" width="2" height="4" rx="0.5" fill="#2F2F2F"/>
+                        <!-- right prong -->
+                        <rect x="13" y="3" width="2" height="4" rx="0.5" fill="#2F2F2F"/>
+                        <!-- wire -->
+                        <path d="M12 13v4a3 3 0 0 0 3 3" fill="none" stroke="#3A5F7D" stroke-width="2"
+                              stroke-linecap="round"/>
+                    </svg> :
+                    {% if cafe.has_sockets: %}
+                        Yes
+                    {% else: %}
+                        No
+                    {% endif %}
+                </p>
+                <p>Calls
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"
+                              style="vertical-align:-0.15em; margin: 0 -0.1em;">
+                        <path d="M6.6 10.8c1.6 3 3.6 5 6.6 6.6l2.2-2.2 c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1
+                        1v3.5 c0 .6-.4 1-1 1 C10.6 21 3 13.4 3 4.9 c0-.6.4-1 1-1H7.5 c.6 0 1 .4 1 1 0 1.3.2 2.6.6
+                        3.8.1.4 0 .8-.3 1.1L6.6 10.8z" fill="#8B3E2F"/>
+                    </svg> :
+                    {% if cafe.can_take_calls: %}
+                        Yes
+                    {% else: %}
+                        No
+                    {% endif %}
+                </p>
+                <p>Avg. Coffee Price: {{ cafe.coffee_price }}</p>
+                <p class="card-actions">
+                    <a style="color:#6A4A73" href="{{ url_for('edit_cafe' , cafe_id=cafe.id) }}">Edit</a>
+                    <a style="color:#C0392B" href="{{ url_for('delete_cafe' , cafe_id=cafe.id) }}">Delete</a>
+                </p>
+            </div>
+
+        </div>
+    {% endfor %}
+</div>
+
+{% include "footer.html" %}
