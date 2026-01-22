@@ -1,0 +1,31 @@
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% extends "base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+
+{% block content %}
+    <!--Form-->
+    <div class="container login">
+        <h1 class="h3 mb-3 fw-normal mb-5">Please sign in</h1>
+
+        {{ render_form(form) }}
+
+        <!-- Forgot password -->
+        <p class="text-left text-muted mt-2">
+            <a href="{{ url_for('forgot_password') }}" class="text-decoration-none">
+                Forgot your password?
+            </a>
+        </p>
+
+
+        <!--Link for new user-->
+        <p class="text-muted text-center">
+            New user?
+            <a href="{{ url_for('register') }}" class="fw-semibold">Click here to register</a>
+        </p>
+    </div>
+{% endblock %}

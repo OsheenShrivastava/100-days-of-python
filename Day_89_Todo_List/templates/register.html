@@ -1,0 +1,15 @@
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% extends "base.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block content %}
+    <!--Form-->
+    <div class="container login">
+        <h1 class="h3 mb-3 fw-normal mb-5">Sign up to save lists</h1>
+        {{ render_form(form) }}
+    </div>
+{% endblock %}

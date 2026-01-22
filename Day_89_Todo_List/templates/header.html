@@ -1,0 +1,42 @@
+<div class="header">
+    <div class="container header-inner">
+        <!-- Logo -->
+        <img src="{{ url_for('static', filename='img/todolist.png') }}"
+             alt="Logo"
+             class="nav-logo">
+
+        <!-- Links + Share -->
+        <div class="nav-grid">
+            {% if current_user.is_authenticated %}
+
+                <a href="{{ url_for('my_saved_list_page') }}" class="nav-btn">
+                    My Saved Lists
+                </a>
+
+                <!-- Share -->
+                <div class="nav-share-group">
+                    <a href="{{ url_for('account_settings') }}" class="acc-set-link">
+                        {{ current_user.email }}
+                    </a>
+
+
+                    <form action="{{ url_for('share_list') }}" method="POST" class="share-form-header">
+                        <input type="email"
+                               name="email"
+                               placeholder="Email"
+                               required>
+                        <button type="submit" class="icon-btn share-btn">
+                             <img src="{{ url_for('static', filename='img/share.svg') }}" alt="Share"
+                                  class="share-icon-btn">
+                        </button>
+                    </form>
+
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            {% else %}
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+        </div>
+    </div>
+</div>

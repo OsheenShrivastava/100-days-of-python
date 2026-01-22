@@ -1,0 +1,465 @@
+
+/* BODY */
+body {
+    font-family: 'Handlee', cursive;
+    background: linear-gradient(
+    120deg,
+    #E0F2FE,   /* light sky blue */
+    #ECFEFF,   /* cyan tint */
+    #F0FDFA    /* mint tint */
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: clamp(15px, 1.2vw, 17px);
+}
+
+.container {
+    max-width: 1100px;   /* SAME width as Features section */
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+}
+
+.header-inner {
+    display: grid;
+    /*grid-template-columns: minmax(0, max-content) 1fr;*/
+    grid-template-columns: auto 1fr;
+    align-items: center;
+
+    padding: clamp(0.6rem, 1.5vw, 1.2rem);
+    gap: clamp(0.8rem, 2vw, 2rem);
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+
+    border-radius: 28px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+
+    margin-top: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.nav-logo {
+    width: clamp(120px, 18vw, 160px);
+    height: auto;
+    border-radius: 20%;
+}
+
+.nav-btn {
+    padding: 0.4rem;
+    border-radius: 8px;
+    color: #111827;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+    background-color: #D1D5DB;
+}
+
+/* Right side nav grid */
+.nav-grid {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+    align-items: center;
+    gap: clamp(0.8rem, 2vw, 1.6rem);
+}
+
+/* My Saved Lists + Share grouped */
+.nav-share-group {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Share form grid */
+.share-form-header {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Share input */
+.share-form-header input {
+    width: 200px;
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+}
+
+.share-form-header input:focus {
+    outline: none;
+    border-color: #4338CA;
+}
+
+.share-btn {
+    all: unset;                 /* 🔥 removes default button styles */
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.share-btn:focus,
+.share-btn:focus-visible {
+    outline: none;
+}
+
+.share-icon-btn{
+    width: 22px;
+    height: 22px;
+    color: #374151;   /* same as header text */
+    opacity: 0.7;
+}
+
+.share-icon-btn:hover {
+  opacity: 1;
+}
+
+.acc-set-link {
+    all: unset;                 /* 🔥 removes default button styles */
+    display: grid;
+    place-items: left;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #111827;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+/* FOOTER */
+.footer {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: clamp(0.75rem, 2vw, 1.5rem);
+    padding: 1rem;
+}
+
+/* FLASH MESSAGE */
+#flash-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.flash-msg {
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 600;
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+.flash-msg.success {
+    background-color: #28a745;
+}
+
+.flash-msg.danger {
+    background-color: #dc3545;
+}
+
+
+.quick-add-form {
+    margin-top: 40px; /* increase value to add more space */
+}
+
+
+.change-password-link {
+    color: #2563eb;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.change-password-link:hover {
+    text-decoration: underline;
+}
+
+/* Hide password fields by default */
+.account-form div:has(input[name="new_password"]),
+.account-form div:has(input[name="confirm_new_password"]) {
+    display: none;
+}
+
+/* Show password fields ONLY when link is clicked */
+#password:target
+.account-form div:has(input[name="new_password"]),
+#password:target
+.account-form div:has(input[name="confirm_new_password"]) {
+    display: block;
+}
+
+.login {
+    display: grid;
+    grid-template-columns: 5fr;
+    justify-content: center;
+    padding: 5%;
+    font-weight: bold;
+}
+
+/* SAVED LIST PAGE */
+.saved_list {
+    display: grid;
+    grid-template-columns: 5fr;
+    justify-content: center;
+    padding: clamp(1.5rem, 4vw, 4rem);
+    font-weight: bold;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.create-input {
+    width: 100%;
+    max-width: 420px;
+    min-width: 0;
+
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    border: 2px dashed #F59E0B;
+    font-size: 1rem;
+    cursor: text;
+    background: #fff7ed;
+}
+
+.create-input:focus {
+    outline: none;
+    border-color: #D97706;
+    background: #fff;
+}
+
+.list-card {
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    scroll-margin-top: 100px;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap:12px;
+    align-items:start;
+}
+
+.list-card.completed .task-actions{
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Background colors */
+.list-card.priority-3 { background-color: #e57373; !important;}
+.list-card.priority-2 { background-color: #f6d365; !important; }
+.list-card.priority-1 { background-color: #81c784; !important;}
+.list-card.priority-0 { background: linear-gradient(
+    120deg,
+    #E0F2FE,   /* light sky blue */
+    #ECFEFF,   /* cyan tint */
+    #F0FDFA    /* mint tint */
+  );
+  !important;
+  }
+
+/* Strike text + date when completed */
+.list-card.completed .task-text, .list-card.completed .due-date {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.form-group {
+    display: grid;              /* 🔥 changed */
+    grid-auto-rows: auto;       /* label then input */
+    row-gap: 0.3rem;            /* replaces margin-bottom on label */
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4338CA;
+}
+
+.cancel-btn, .form-save-btn {
+  display: inline-grid;
+  place-items: center;
+
+  padding: 2px 4px;
+  border-radius: 6px;
+
+  background: #e5e7eb;
+  color: #374151;
+
+  text-decoration: none;
+  font-size: 13px;
+
+  border: none;
+  outline: none;
+
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cancel-btn:hover, .form-save-btn:hover {
+  background: #d1d5db;
+}
+
+.color-tabs {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 8px;
+    margin-top: 8px;
+    justify-content: end;
+    align-items: right;
+}
+
+.color-tab {
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    border: 2px solid rgba(0,0,0,0.15);
+    cursor: pointer;
+    padding: 0px;
+}
+
+.color-tab.priority-3 { background: #e57373; }
+.color-tab.priority-2 { background: #f6d365; }
+.color-tab.priority-1 { background: #81c784; }
+.color-tab.priority-0 { background: linear-gradient(
+    120deg,
+    #E0F2FE,   /* light sky blue */
+    #ECFEFF,   /* cyan tint */
+    #F0FDFA    /* mint tint */
+  );
+  }
+
+.color-tab:hover {
+    transform: scale(1.2);
+}
+
+.task-row {
+    display: grid;
+    grid-template-columns: 28px 1fr auto; /* checkbox | task | meta */
+    align-items: center;   /* vertical alignment */
+    gap: 12px;
+    width: 100%;
+}
+
+.task-row form {
+    margin: 0;
+}
+
+/* Hide ALL buttons except delete */
+.status-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border-color: black;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: #E5E7EB;
+    color: #374151;
+
+    display: grid;
+    align-self: start;
+}
+
+.status-btn.done {
+    background-color: #22C55E;
+    color: white;
+}
+
+.task-text {
+    grid-column: 2;
+    word-break: break-word;
+    line-height: 1.4;
+    min-width: 0;
+    font-size: clamp(1.05rem, 1.35vw, 1.15rem);
+}
+
+.task-meta {
+    grid-column: 3;
+    display: flex;             /* horizontal alignment */
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    font-size: clamp(0.86rem, 1.05vw, 0.95rem);
+}
+
+.due-date {
+    color: black;
+    font-size: clamp(0.82rem, 1vw, 0.9rem);
+}
+
+/* icons row */
+.action-buttons {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* Normal state */
+.task-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.priority-icon-button {
+    border: none;
+    background: none;
+    padding: 0;
+
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.icon-btn, .priority-icon-btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    object-fit: contain;
+    opacity: 0.6;
+}
+
+.icon-btn:hover {
+  opacity: 1;
+}
+
+.delete-button {
+    border:none;
+    background:none;
+    padding:0;
+    cursor:pointer;
+}
+
+/* delete icon ONLY */
+.delete-icon {
+    width: 40px;      /* 👈 smaller */
+    height: 40px;
+    cursor: pointer;
+    object-fit: contain;
+    opacity: 0.6;
+}
