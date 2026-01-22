@@ -1,0 +1,26 @@
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% extends "base.html" %}
+
+{% block title %}
+    Account Settings
+{% endblock %}
+
+{% block content %}
+    <div class="container quick-add-form">
+        <h1 class="h3 mb-3 fw-normal mb-5">Account Settings</h1>
+
+        <!-- Change password link -->
+        <p>
+            <a href="#password" class="change-password-link">
+                Change password
+            </a>
+        </p>
+
+        <!-- Account form -->
+        <div id="password">
+            {{ render_form(form, extra_classes="account-form") }}
+        </div>
+
+    </div>
+{% endblock %}

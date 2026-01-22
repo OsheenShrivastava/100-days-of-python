@@ -1,0 +1,139 @@
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% extends "base.html" %}
+
+{% block title %}
+    My Saved Lists
+{% endblock %}
+
+{% block content %}
+    <div class="container saved_list">
+        <form method="POST" action="{{ url_for('my_saved_list_page') }}" class="quick-add-form">
+
+            <input type="text"
+                   name="task"
+                   placeholder="+ Add a task and press Enter"
+                   class="create-input"
+                   required>
+
+            <!-- hidden inputs -->
+            <input type="hidden" name="due_date">
+
+        </form>
+
+
+        {% for list in lists %}
+            {% set priority_map = {3:'high', 2:'medium', 1:'low', 0:'default'} %}
+            <div class="list-card priority-{{ list.priority }} {% if list.completed %}completed{% endif %}"
+                 id="list-{{ list.id }}">
+
+                {% if edit_card_id == list.id %}
+
+                    <!--Full Card Edit Mode-->
+                    <form method="POST" action="{{ url_for('edit_task', list_id=list.id) }}">
+
+                        <div class="form-group">
+                            <label>Task</label>
+                            <input type="text" name="task" value="{{ list.task }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Due Date</label>
+                            <input type="date" name="due_date" value="{{ list.due_date.strftime('%Y-%m-%d')
+                            if list.due_date }}">
+                        </div>
+
+                        <div>
+                            <button type="submit" class="form-save-btn">Save</button>
+                            <a href="{{ url_for('my_saved_list_page') }}" class="cancel-btn">
+                                Cancel
+                            </a>
+                        </div>
+                    </form>
+
+                {% elif edit_id == list.id %}
+                    <!-- EDIT MODE -->
+                    <form method="POST" action="{{ url_for('set_priority', list_id=list.id) }}" class="color-tabs">
+                        {% for value in [3,2,1,0] %}
+                            <button name="priority" value="{{ value }}" class="color-tab priority-{{ value }}"></button>
+                        {% endfor %}
+
+                        <!-- CANCEL -->
+                        <a href="{{ url_for('my_saved_list_page') }}" class="cancel-btn">
+                            Cancel
+                        </a>
+                    </form>
+
+                {% else %}
+                    <!-- VIEW MODE: small edit & delete icons -->
+
+                    <div class="task-row">
+
+                        <!-- Completed Toggle Button -->
+                        <form action="{{ url_for('toggle_complete', list_id=list.id) }}" method="POST">
+                            <button type="submit" class="status-btn
+                            {% if list.completed %}done{% else %}not-done{% endif %}">
+                                {% if list.completed %}
+                                    ✔
+                                {% endif %}
+                            </button>
+                        </form>
+
+                        <div class="task-text">{{ list.task }}</div>
+
+                        <div class="task-meta">
+                            <span class="due-date">
+                                Due:
+                                {% if list.due_date %}
+                                    {{ list.due_date }}
+                                {% else %}
+                                    No due date
+                                {% endif %}
+                            </span>
+
+                            <div class="action-buttons">
+                                <div class="task-actions">
+
+                                    <!--Star Task Button-->
+                                    <form action="{{ url_for('star_task_as_imp', list_id=list.id) }}" method="POST">
+                                        <button type="submit" class="priority-icon-button">
+                                            {% if list.is_important %}
+                                                <img src="{{ url_for('static', filename='img/star_filled.svg') }}"
+                                                     class="priority-icon-btn" >
+                                            {% else %}
+                                                <img src="{{ url_for('static', filename='img/star_empty.svg') }}"
+                                                     class="priority-icon-btn" >
+                                            {% endif %}
+                                        </button>
+                                    </form>
+
+
+                                    <!-- Label Edit Button -->
+                                    <a href="{{ url_for('my_saved_list_page', edit=list.id) }}#list-{{ list.id }}">
+                                        <img src="{{ url_for('static', filename='img/label.png') }}" alt="Edit"
+                                             class="icon-btn">
+                                    </a>
+
+
+                                    <!-- FULL CARD EDIT (pencil icon) -->
+                                    <a href="{{ url_for('my_saved_list_page', edit_card=list.id) }}#list-{{ list.id }}">
+                                        <img src="{{ url_for('static', filename='img/edit_pencil.svg') }}" alt="Edit"
+                                             class="icon-btn">
+                                    </a>
+                                </div>
+
+                                <!-- Delete Button -->
+                                <form action="{{ url_for('delete', list_id=list.id) }}" method="POST">
+                                    <button type="submit" class="delete-button">
+                                        <img src="{{ url_for('static', filename='img/delete_button.png') }}"
+                                             alt="Delete" class="icon-btn delete-icon">
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
