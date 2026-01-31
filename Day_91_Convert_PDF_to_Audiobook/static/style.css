@@ -1,0 +1,161 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #e8f5e9, #f3e5f5);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(0.9rem, 0.85rem + 0.3vw, 1rem);
+}
+
+main {
+    flex: 1;               /* fills all free space */
+    display: grid;
+    align-items: center;   /* vertically centers form */
+    overflow: hidden;      /* prevents 1–2px scrollbars */
+    padding: 10px 0;
+}
+
+.page-wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.upload_form > * {
+    margin-bottom: 4px;
+}
+
+.upload_form {
+    display: grid;
+    grid-template-columns: 5fr;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    align-items: center;
+    margin-top: 10px;
+    width: min(90%, 600px);
+    gap: 6px;                 /* tighter spacing */
+    padding: 2%;              /* slightly tighter */
+}
+
+.upload_form h3 {
+    font-size: clamp(1.2rem, 1rem + 1.2vw, 1.8rem);
+    font-weight: 700;
+    padding-bottom: 3px;
+    margin-bottom: 4px;
+}
+
+.upload_form label {
+    font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+}
+
+.upload_form input,
+.upload_form select,
+.upload_form textarea {
+    font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+    padding: 6px 10px;   /* reduces height */
+}
+
+.upload_form button {
+    font-size: clamp(0.9rem, 0.85rem + 0.3vw, 1rem);
+    font-weight: 600;
+    padding: 6px 12px;
+}
+
+/* Hide all voice groups by default */
+.voice-group {
+    display: none;
+}
+
+/* EN-US */
+.voice-form:has(#language option[value="en-us"]:checked):has(#gender option[value="male"]:checked) .male-en {
+    display: block;
+}
+
+.voice-form:has(#language option[value="en-us"]:checked):has(#gender option[value="female"]:checked) .female-en {
+    display: block;
+}
+
+/* EN-GB */
+.voice-form:has(#language option[value="en-gb"]:checked):has(#gender option[value="male"]:checked) .male-uk {
+    display: block;
+}
+
+.voice-form:has(#language option[value="en-gb"]:checked):has(#gender option[value="female"]:checked) .female-uk {
+    display: block;
+}
+
+/* HI-IN */
+.voice-form:has(#language option[value="hi-in"]:checked):has(#gender option[value="male"]:checked) .male-hi {
+    display: block;
+}
+
+.voice-form:has(#language option[value="hi-in"]:checked):has(#gender option[value="female"]:checked) .female-hi {
+    display: block;
+}
+
+.audio-player {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.audio-player audio {
+    width: 100%;
+    max-width: 400px;
+    height: 28px;
+}
+
+.footer {
+    display: grid;
+    place-items: center;
+    color: black;
+    font-weight: bold;
+    font-size: clamp(0.7rem, 0.6rem + 0.6vw, 1rem);
+    padding: 6px 0;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* FLASH MESSAGE */
+#flash-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.flash-msg {
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 600;
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+.flash-msg.success {
+    background-color: #28a745;
+}
+
+.flash-msg.danger {
+    background-color: #dc3545;
+}

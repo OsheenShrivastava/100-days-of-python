@@ -1,0 +1,62 @@
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% extends "base.html" %}
+
+{% block title %}
+    Convert PDF to AudioBook
+{% endblock %}
+
+
+{% block content %}
+    <div class="page-wrapper">
+        <div class="container upload_form">
+            <h3>Convert PDF to Audiobook</h3>
+
+            <form method="POST" enctype="multipart/form-data" class="voice-form">
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                    {{ form.pdf.label }} {{ form.pdf }}
+                </div>
+
+                 <div class="mb-3">
+                    {{ form.language.label }} {{ form.language }}
+                </div>
+
+                 <div class="mb-3">
+                    {{ form.gender.label }} {{ form.gender }}
+                </div>
+
+                <div class="mb-3 voice-group male-en">{{ form.male_en.label }} {{ form.male_en }}</div>
+                <div class="mb-3 voice-group female-en">{{ form.female_en.label }} {{ form.female_en }}</div>
+
+                <div class="mb-3 voice-group male-uk">{{ form.male_uk.label }} {{ form.male_uk }}</div>
+                <div class="mb-3 voice-group female-uk">{{ form.female_uk.label }} {{ form.female_uk }}</div>
+
+                <div class="mb-3 voice-group male-hi">{{ form.male_hi.label }} {{ form.male_hi }}</div>
+                <div class="mb-3 voice-group female-hi">{{ form.female_hi.label }} {{ form.female_hi }}</div>
+
+                <div class="mt-3">
+                    {{ form.submit(class="btn btn-primary w-100")}}
+                </div>
+            </form>
+
+            {% if audio_ready %}
+                <div class="audio-player mt-2">
+                    <h5>🎧 Your Audiobook</h5>
+                    <audio controls>
+                        <source src="{{ url_for('static', filename='audio.mp3') }}?v={{ audio_version }}"
+                                type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            {% endif %}
+
+            <a href="{{ url_for('static', filename='audio.mp3') }}" download class="btn btn-success mt-1">
+                ⬇ Download Audio
+            </a>
+
+        </div>
+    </div>
+
+{% endblock %}
