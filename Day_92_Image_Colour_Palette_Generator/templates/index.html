@@ -1,0 +1,45 @@
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% extends "base.html" %}
+
+{% block title %}
+    Image Colour Palette Generator
+{% endblock %}
+
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="container">
+        <h5>Image Colour Palette Generator</h5>
+
+        <!-- 🔼 Upload Card (INPUT) -->
+        <div class="card upload-card">
+          <h2 class="card-title">Upload an Image</h2>
+
+          <form action="{{ url_for('home') }}" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <input class="form-control" type="file" id="imageUpload" name="image" accept="image/*">
+            </div>
+
+            <button class="btn">Generate Palette</button>
+          </form>
+
+          <img src="{{ url_for('static', filename=image_filename) }}" alt="Preview Image" class="preview-img"/>
+
+          <h2 class="card-title">Your Color Palette</h2>
+
+          {% if colors %}
+            <div class="palette">
+              {% for color in colors %}
+                 <button type="button" class="color" data-hex="{{ color }}" style="background: {{ color }}">
+                      {{ color }}
+                      <span class="copy-text">Copy</span>
+                 </button>
+                {% endfor %}
+            </div>
+          {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
