@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Movies
+{% endblock %}
+
+{% block content %}
+
+    <div class="movie-grid">
+        {% for movie in movies %}
+            <div class="movie-box">
+                <h3>{{ movie.movie }}</h3>
+                <p>⏱ {{ movie.runtimeInMinutes }} min</p>
+                <p>💵 ${{ movie.budgetInMillions }}M</p>
+                <p>💰 ${{ movie.boxOfficeRevenueInMillions }}M</p>
+                <p>🎖 {{ movie.academyAwardNominations }} Nominations</p>
+                <p>🏆 {{ movie.academyAwardWins }} Wins</p>
+                <p>🍅 {{ movie.rottenTomatoesScore }}%</p>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

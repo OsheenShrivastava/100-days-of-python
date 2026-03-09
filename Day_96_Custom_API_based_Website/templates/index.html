@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <!--Header Section-->
+    <div class="hero-section">
+
+        <h2 class="hero-title">
+            WELCOME TO <span>LoTR REALM!</span>
+        </h2>
+
+         <p class="hero-sub">
+            BOOKS. CHARACTERS. QUOTES. MOVIES. ALL IN ONE REALM.
+        </p>
+
+        <div class="quote-rotator">
+            <div class="quote-track">
+                {% for q in lotr_quotes %}
+                    <div class="quote-item" style="animation-delay: {{ loop.index0 * 4 }}s;">
+                        "{{ q['quote'] }}"
+                        <br>
+                        — {{ q['author'] }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Characters
+{% endblock %}
+
+{% block content %}
+
+    <input type="checkbox" id="toggle-characters" hidden>
+
+    {% if character %}
+
+        <section class="character-dossier">
+
+            <form method="GET" action="{{ url_for('characters') }}" class="search-form">
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search character..."
+                    value="{{ request.args.get('search', '') }}"
+                    class="search-input"
+                >
+
+                 <button type="submit" name="action" value="search" class="search-btn">
+                    Search
+                </button>
+
+                <button type="submit" name="action" value="random" class="search-btn">
+                    Random Character
+                </button>
+            </form>
+
+            <h1>{{ character.character }}</h1>
+
+            <div class="dossier-grid">
+
+                <div><span>Race</span> {{ character.race or "Unknown" }}</div>
+                <div><span>Height</span> {{ character.height or "Unknown" }}</div>
+                <div><span>Gender</span> {{ character.gender or "Unknown" }}</div>
+                <div><span>Birth</span> {{ character.date_of_birth or "Unknown" }}</div>
+                <div><span>Spouse</span> {{ character.spouse or "Unknown" }}</div>
+                <div><span>Death</span> {{ character.date_of_death or "Unknown" }}</div>
+                <div><span>Realm</span> {{ character.realm or "Unknown" }}</div>
+                <div><span>Hair</span> {{ character.hair or "Unknown" }}</div>
+                <div><span>Wiki</span><a href="{{ character.wiki }}" target="_blank" rel="noopener noreferrer">View Profile
+                </a></div>
+
+            </div>
+
+            <label for="toggle-characters" class="toggle-btn">
+                View All Characters
+            </label>
+
+        </section>
+
+    {% endif %}
+
+    <!-- 🔥 ALL CHARACTERS SECTION -->
+    <section class="characters-section">
+
+        <h2 class="section-title">All Characters</h2>
+
+        <div class="characters-grid">
+            {% for char in all_characters %}
+                <div class="character-item">
+                    {{ char.character }}
+                </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+{% endblock %}

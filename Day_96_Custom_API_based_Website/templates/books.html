@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block content %}
+
+    {% for book, chapters in chapters.items() %}
+        <div class="book-card">
+            <h2>{{ book }}</h2>
+
+            <div class="chapter-scroll">
+                {% for chapter in chapters %}
+                    <p>{{ chapter }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

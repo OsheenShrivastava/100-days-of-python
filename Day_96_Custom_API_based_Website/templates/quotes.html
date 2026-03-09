@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Quotes
+{% endblock %}
+
+{% block content %}
+
+    <div class="quote-container">
+
+        <form method="GET" action="{{ url_for('quotes') }}" class="random-form">
+            <button type="submit" name="action" value="random" class="random-btn">
+                Reveal Another Quote
+            </button>
+        </form>
+
+        <div class="quote-flip-card">
+            <div class="quote-flip-inner">
+                <!-- FRONT -->
+                <div class="quote-front">
+
+                    <h1 class="quote-text">
+                        "{{ quote.quote }}"
+                    </h1>
+
+                </div>
+
+                <!-- BACK -->
+                <div class="quote-back">
+
+                    <p class="quote-author">
+                        By: {{ quote.character }}
+                    </p>
+
+                    <p class="quote-movie">
+                        From: {{ quote.movie }}
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
