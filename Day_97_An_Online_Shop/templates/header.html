@@ -1,0 +1,42 @@
+<header class="navbar">
+
+    <div class="logo">
+        <span class="brand">Shopora</span>
+        <span class="tagline">Shop Anything</span>
+    </div>
+
+    <form action="{{ url_for('search') }}" method="GET" class="search-bar">
+        <input type="text" name="q" placeholder="Search products" value="{{ request.args.get('q','') }}">
+        <button>Search</button>
+    </form>
+
+    <div class="nav-right">
+        <a href="/">Home</a>
+
+        {% if current_user.is_authenticated %}
+            <a href="/logout">Logout</a>
+
+            <!-- USER NAME -->
+            <a href="/account_settings">
+                <span class="user-avatar">
+                    {{ current_user.name[0] | upper }}
+                </span>
+            </a>
+
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+
+        <a href="/cart_page" class="cart">
+            🛒 Cart
+            <span class="cart-count">
+                {% if cart_count %}
+                    {{ cart_count }}
+                {% else %}
+                    0
+                {% endif %}
+            </span>
+        </a>
+    </div>
+</header>

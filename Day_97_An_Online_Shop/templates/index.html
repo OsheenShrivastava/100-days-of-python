@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <input type="checkbox" id="toggle-shop" hidden>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Shopora</h1>
+            <p>Discover Books, Electronics, Clothes, Furniture & More</p>
+            <label for="toggle-shop" class="shop-btn">
+                Shop by Category
+            </label>
+        </div>
+    </section>
+
+    <section id="categories" class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category-grid">
+            <a href="{{ url_for('books') }}" class="category-card">📚 Books</a>
+            <a href="{{ url_for('clothes') }}" class="category-card">👕 Clothes</a>
+            <a href="{{ url_for('electronics') }}" class="category-card">💻 Electronics</a>
+            <a href="{{ url_for('shoes') }}" class="category-card">👟 Shoes</a>
+            <a href="{{ url_for('furniture') }}" class="category-card">🪑 Furniture</a>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <h2>Why Shopora?</h2>
+        <div class="benefits-grid">
+            <div class="benefit">🚚 Free Delivery</div>
+            <div class="benefit">🔒 Secure Payments</div>
+            <div class="benefit">💳 Easy Returns</div>
+            <div class="benefit">⭐ Quality Products</div>
+        </div>
+    </section>
+{% endblock %}

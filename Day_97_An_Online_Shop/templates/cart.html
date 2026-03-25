@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Cart
+{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- LEFT SIDE (CART ITEMS) -->
+            <div class="col-md-8">
+                <h2 class="mb-4">Your Cart</h2>
+
+                {% if items %}
+                    {% for item in items %}
+
+                        <div class="cart-item d-flex align-items-center mb-4 p-3 shadow-sm">
+                            <img src="{{ item.image }}" width="100" class="me-3">
+
+                            <div class="flex-grow-1">
+                                <h5>{{ item.title }}</h5>
+                                <p class="text-muted">₹{{ item.price }}</p>
+
+                                <!-- Quantity + Remove (CLOSE TOGETHER) -->
+                                <div class="d-flex align-items-center gap-3">
+
+                                    <!-- DECREASE -->
+                                    <form action="{{ url_for('update_cart', item_id=item.id) }}" method="POST">
+                                        <input type="hidden" name="action" value="decrease">
+                                        <button type="submit" class="btn btn-outline-secondary btn-sm">−</button>
+                                    </form>
+
+                                    <!-- CURRENT QUANTITY -->
+                                    <span class="px-2">{{ item.quantity }}</span>
+
+                                    <!-- INCREASE -->
+                                    <form action="{{ url_for('update_cart', item_id=item.id) }}" method="POST">
+                                        <input type="hidden" name="action" value="increase">
+                                        <button type="submit" class="btn btn-outline-secondary btn-sm">+</button>
+                                    </form>
+
+                                    <!-- REMOVE BUTTON (NOW CLOSE) -->
+                                    <form action="{{ url_for('remove_from_cart', item_id=item.id) }}" method="POST">
+                                        <button class="btn btn-danger btn-sm">Remove</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Your cart is empty.</p>
+                {% endif %}
+            </div>
+
+            <!-- RIGHT SIDE (FAKE PAYMENT FORM) -->
+            <div class="col-md-4">
+                <div class="payment-box p-4 shadow-sm">
+                    <h4 class="mb-3">Secure Payment 🔒</h4>
+
+                    {% if items %}
+
+                        <form action="{{ url_for('fake_payment') }}" method="POST">
+                            <!-- CARD NUMBER -->
+                            <label>Card Number</label>
+                            <input type="text" name="card_number" class="form-control mb-2"
+                                   placeholder="1234 5678 9012 3456" required>
+
+                            <div class="d-flex gap-2 mt-3">
+                                <div class="w-50">
+                                    <label>Expiry</label>
+                                    <input type="text" name="expiry" class="form-control mb-3"
+                                           placeholder="MM/YY"
+                                           pattern="(0[1-9]|1[0-2])\/\d{2}"
+                                           title="Enter in MM/YY format"
+                                           maxlength="5"
+                                           required>
+                                </div>
+
+                                <div class="w-50">
+                                    <label>CVV</label>
+                                    <input type="password" name="cvv" class="form-control mb-3"
+                                           placeholder="***" maxlength="3" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn pay-btn w-100 mt-2">
+                                Pay ₹{{ total }}
+                            </button>
+                        </form>
+
+                    {% else %}
+                        <!-- EMPTY CART UI -->
+                        <div class="text-center text-muted">
+                            <p>Your cart is empty</p>
+
+                            <button class="btn btn-secondary w-100 mt-2" disabled>
+                                Add items to proceed
+                            </button>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

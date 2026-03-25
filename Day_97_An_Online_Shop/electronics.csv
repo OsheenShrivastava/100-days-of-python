@@ -1,0 +1,50 @@
+category,title,image,price,rating,reviews
+smartphones,iPhone 5s,https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/thumbnail.webp,73622,4.6,17564
+smartphones,iPhone 6,https://cdn.dummyjson.com/product-images/smartphones/iphone-6/thumbnail.webp,77960,4.3,16145
+smartphones,iPhone 13 Pro,https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/thumbnail.webp,50241,4.8,8342
+smartphones,iPhone X,https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp,46081,4.1,8693
+smartphones,Oppo A57,https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/thumbnail.webp,22891,4.2,2414
+smartphones,Oppo F19 Pro Plus,https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/thumbnail.webp,88470,4.4,21144
+smartphones,Oppo K1,https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/thumbnail.webp,111872,4.2,21588
+smartphones,Realme C35,https://cdn.dummyjson.com/product-images/smartphones/realme-c35/thumbnail.webp,64827,4.3,5458
+smartphones,Realme X,https://cdn.dummyjson.com/product-images/smartphones/realme-x/thumbnail.webp,18808,4.8,22280
+smartphones,Realme XT,https://cdn.dummyjson.com/product-images/smartphones/realme-xt/thumbnail.webp,9062,4.6,10432
+smartphones,Samsung Galaxy S7,https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/thumbnail.webp,53371,4.4,6600
+smartphones,Samsung Galaxy S8,https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/thumbnail.webp,46605,4.5,16337
+smartphones,Samsung Galaxy S10,https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/thumbnail.webp,37341,4.7,1115
+smartphones,Vivo S1,https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/thumbnail.webp,18306,4.7,14395
+smartphones,Vivo V9,https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/thumbnail.webp,114542,4.3,24367
+smartphones,Vivo X21,https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/thumbnail.webp,88162,4.2,2676
+laptops,Apple MacBook Pro 14 Inch Space Grey,https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp,191893,4.3,1971
+laptops,Asus Zenbook Pro Dual Screen Laptop,https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp,101827,4.1,4655
+laptops,Huawei Matebook X Pro,https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp,153188,4.5,1502
+laptops,Lenovo Yoga 920,https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp,163110,4.3,13441
+laptops,New DELL XPS 13 9300 Laptop,https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp,122750,4.2,4112
+tablets,iPad Mini 2021 Starlight,https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp,71943,4.3,9594
+tablets,Samsung Galaxy Tab S8 Plus Grey,https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/thumbnail.webp,38609,4.0,1763
+tablets,Samsung Galaxy Tab White,https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/thumbnail.webp,51120,4.6,4667
+mobile-accessories,Amazon Echo Plus,https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/thumbnail.webp,2561,3.9,5562
+mobile-accessories,Apple Airpods,https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp,1737,4.4,13204
+mobile-accessories,Apple AirPods Max Silver,https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/thumbnail.webp,3205,4.4,14298
+mobile-accessories,Apple Airpower Wireless Charger,https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpower-wireless-charger/thumbnail.webp,1342,4.5,17436
+mobile-accessories,Apple HomePod Mini Cosmic Grey,https://cdn.dummyjson.com/product-images/mobile-accessories/apple-homepod-mini-cosmic-grey/thumbnail.webp,2634,3.8,15158
+mobile-accessories,Apple iPhone Charger,https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/thumbnail.webp,1872,3.9,18410
+mobile-accessories,Apple MagSafe Battery Pack,https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/thumbnail.webp,3916,4.2,14293
+mobile-accessories,Apple Watch Series 4 Gold,https://cdn.dummyjson.com/product-images/mobile-accessories/apple-watch-series-4-gold/thumbnail.webp,2930,4.5,3668
+mobile-accessories,Beats Flex Wireless Earphones,https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/thumbnail.webp,1192,4.1,2917
+mobile-accessories,iPhone 12 Silicone Case with MagSafe Plum,https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/thumbnail.webp,1033,3.7,18123
+mobile-accessories,Monopod,https://cdn.dummyjson.com/product-images/mobile-accessories/monopod/thumbnail.webp,1195,4.5,1441
+mobile-accessories,Selfie Lamp with iPhone,https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-lamp-with-iphone/thumbnail.webp,3844,4.3,19535
+mobile-accessories,Selfie Stick Monopod,https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-stick-monopod/thumbnail.webp,1465,4.3,14644
+mobile-accessories,TV Studio Camera Pedestal,https://cdn.dummyjson.com/product-images/mobile-accessories/tv-studio-camera-pedestal/thumbnail.webp,1950,4.1,7537
+mens-watches,Brown Leather Belt Watch,https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/thumbnail.webp,2012,4.1,1013
+mens-watches,Longines Master Collection,https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/thumbnail.webp,8995,4.1,64
+mens-watches,Rolex Cellini Date Black Dial,https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/thumbnail.webp,4515,4.6,174
+mens-watches,Rolex Cellini Moonphase,https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/thumbnail.webp,10129,4.0,3330
+mens-watches,Rolex Datejust,https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/thumbnail.webp,7732,4.0,4581
+mens-watches,Rolex Submariner Watch,https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/thumbnail.webp,3693,4.6,4675
+womens-watches,IWC Ingenieur Automatic Steel,https://cdn.dummyjson.com/product-images/womens-watches/iwc-ingenieur-automatic-steel/thumbnail.webp,5975,4.2,2534
+womens-watches,Rolex Cellini Moonphase,https://cdn.dummyjson.com/product-images/womens-watches/rolex-cellini-moonphase/thumbnail.webp,9648,4.0,3079
+womens-watches,Rolex Datejust Women,https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/thumbnail.webp,7907,4.5,1825
+womens-watches,Watch Gold for Women,https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/thumbnail.webp,7592,4.6,4486
+womens-watches,Women's Wrist Watch,https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/thumbnail.webp,11641,4.3,2275

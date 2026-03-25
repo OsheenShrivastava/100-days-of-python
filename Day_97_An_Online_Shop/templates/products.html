@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="books-layout">
+        <!-- Sidebar Filters -->
+        <aside class="filters">
+            <h3>{{ selected_category|replace('-', ' ')|title if selected_category != 'all' else title }}</h3>
+
+            <ul>
+                <!-- ALL BOOKS -->
+                <li>
+                    <a href="{{ url_for(request.endpoint) }}"
+                       class="filter-link {% if selected_category == 'all' %}active-filter{% endif %}">
+                       All
+                    </a>
+                </li>
+
+                {% for category in categories %}
+                    <li>
+                        <a href="{{ url_for(request.endpoint, category=category) }}"
+                           class="filter-link {% if selected_category == category %}active-filter{% endif %}">
+                            {{ category|replace('-', ' ')|title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </aside>
+
+
+        <!-- Books Section -->
+        <section class="books-container">
+            {% for category, items in products.items() %}
+                {% for item in items %}
+                    <div class="book-card">
+                        <img src="{{ item.image }}" class="book-img" loading="lazy" decoding="async">
+
+                        <div class="book-info">
+                            <h3>{{ item.title }}</h3>
+
+                             <!-- AUTHOR (only for books) -->
+                            {% if item.author %}
+                                <p class="author">By: {{ item.author }}</p>
+                            {% endif %}
+
+                            <div class="rating">
+                                {% set stars = item.rating|default(0)|int %}
+
+                                {% for i in range(stars) -%}★{%- endfor %}
+                                {% for i in range(5-stars) -%}☆{%- endfor %}
+
+                                <span class="review-count">( {{ item.reviews }} )</span>
+                            </div>
+
+                            <p class="price">₹{{ item.price }}</p>
+
+                            <form method="POST" action=" {{ url_for('add_to_cart') }} ">
+                                <!--To pass value we will use input tag with type hidden-->
+                                <input type="hidden" name="title" value="{{ item.title }}">
+                                <input type="hidden" name="price" value="{{ item.price }}">
+                                <input type="hidden" name="image" value="{{ item.image }}">
+
+                                <button type="submit" class="add-cart">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </section>
+    </div>
+{% endblock %}
