@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Amazon Price Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🛒 Price Tracker</h1>
+
+        <form method="POST">
+            <label>Product URL</label>
+            <input type="text" name="url" placeholder="Paste Amazon link..."
+                   value="{{ '' if clear else (request.form.url or url or '') }}" required>
+
+            <label>Target Price (₹)</label>
+            <input type="number" name="price" placeholder="Enter target price"
+                   value="{{ '' if clear else (request.form.price or target_price or '') }}" required>
+
+            <button id="track-btn" type="submit">Track Price</button>
+        </form>
+
+        {% if result %}
+            <div class="result
+                        {% if '🔥' in result %}success
+                        {% elif '❌' in result %}error
+                        {% else %}normal
+                        {% endif %}">
+                {{ result }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
