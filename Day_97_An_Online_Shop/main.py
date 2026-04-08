@@ -273,8 +273,7 @@
 #  .flash-msg.warning, .flash-msg.danger, .flash-msg.info and .flash-msg.success classes in style.css and add background
 #  color to it. Add animation for message fadeout.
 # TODO-211 - Add main opening and closing tags. Inside them add {% block content %} and {% endblock %} to enclose body
-#  content.
-# TODO- - Close body and html tags.
+#  content. Close body and html tags.
 
 # account_settings.html
 # TODO-212 - Add a file named "account_settings.html" in templates folder.
