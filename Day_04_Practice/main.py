@@ -7,6 +7,7 @@ random_integer = random.randint(1, 10)
 print(random_integer)
 
 print(my_module.my_favourite_number)
+print("\n")
 
 # Generate number between 0 and 1
 random_number_0_to_1 = random.random()
@@ -14,6 +15,7 @@ print(random_number_0_to_1)
 
 random_number_1_to_10 = random.random() * 10
 print(random_number_1_to_10)
+print("\n")
 
 # Uniform - The range includes both 1 and 10 as well
 random_float = random.uniform(1, 10)
@@ -24,6 +26,7 @@ if random_heads_or_tails == 0:
     print("Heads")
 else:
     print("Tails")
+print("\n")
 
 # Lists
 states_of_america = ["Delaware", "Pennsylvania", "New Jersey", "Georgia", "California"]
@@ -42,6 +45,7 @@ print(states_of_america)
 
 friends = ["Alice", "Bob", "Charlie", "David", "Eve", "Fred"]
 print(random.choice(friends))
+print("\n")
 
 # Index Errors
 states_of_america = ["Delaware", "Pennsylvania", "New Jersey", "Georgia", "California"]
