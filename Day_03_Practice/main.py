@@ -7,7 +7,6 @@ if height > 120:  # >= and == can also be checked
     print("You can ride the rollercoaster")
 else:
     print("Sorry you have to grow taller before you can ride.")
-
 print("\n")
 
 # Modulo Operator
@@ -17,7 +16,6 @@ if number_to_check % 2 == 0:
     print("The number is even")
 else:
     print("The number is odd")
-
 print("\n")
 
 # Nested if and elif statements
@@ -88,7 +86,6 @@ if extra_cheese == "Y":
     bill += 1
 
 print(f"Your final bill is: ${bill}.")
-
 print("\n")
 
 # Logical Operators
