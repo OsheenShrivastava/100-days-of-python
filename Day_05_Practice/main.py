@@ -5,6 +5,7 @@ for fruit in fruits:
     print(fruit)
     print(fruit + "pie")
 print(fruits)
+print("\n")
 
 # Highest Score using FOR Loop
 student_scores = [150, 142, 185, 120, 171, 184, 149, 24, 59, 68, 199, 78, 65, 89, 86, 55, 91, 64, 89]
@@ -15,6 +16,7 @@ for score in student_scores:
         max_score = score
 
 print(max_score)
+print("\n")
 
 # Range Function
 for number in range(1,10):
@@ -27,3 +29,4 @@ total = 0
 for number in range(1,101):
     total += number
 print(total)
+print("\n")
