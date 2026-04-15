@@ -1,5 +1,4 @@
-<!-- 
-Apple
+<!-- Apple
 Applepie
 Peach
 Peachpie
@@ -24,5 +23,4 @@ Pearpie
 4
 7
 10
-5050 
--->
+5050 -->
