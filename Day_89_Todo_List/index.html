@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Todo List
+{% endblock %}
+
+{% block content %}
+    <!--Content Section-->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <!--Later change this image-->
+                <img src="{{ url_for('static', filename='img/todolist.png') }}" class="d-block mx-lg-auto img-fluid"
+                     alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <!-- Heading -->
+                <h1 class="display-5 fw-bold lh-1 mb-3 py-2" style="font-size: clamp(2rem, 4vw, 3.2rem);">
+                    Plan smarter. Get things done.</h1>
+
+                <!-- Explanation -->
+                <p class="lead mb-4 py-4" style="font-size: clamp(1rem, 1.6vw, 1.3rem);">
+                    Keep track of all your tasks, prioritize what matters, and boost your productivity every day.</p>
+
+                <!-- Centered Button -->
+                <a href="{{ url_for('login') }}">
+                    <div class="d-flex justify-content-start py-2">
+                        <button type="button" class="btn btn-primary btn-lg px-4 w-75"
+                                style="font-size: clamp(1rem, 1.4vw, 1.2rem);">
+                            Create a to-do list
+                        </button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--Features Section-->
+    <div class="container px-4 py-1" id="custom-cards">
+        <h2 class="pb-2 border-bottom">Features</h2>
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="col">
+                <div class="card h-100 overflow-hidden rounded-4 shadow-lg"
+                     style="background-image: url('{{ url_for('static', filename='img/pic_1.jpg') }}');
+                     background-size: cover; background-position: center; position: relative;">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Start instantly. No setup needed — just add
+                            tasks.</h3>
+                        <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                                <svg width="38" height="38" viewBox="0 0 16 16" fill="#ffffff"
+                                     class="rounded-circle text-white"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                    <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97
+                                    11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                     style="background-image: url('{{ url_for('static', filename='img/pic_2.jpg') }}');
+                     background-size: cover; background-position: center; position: relative;">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Share your lists with anyone. Copy the link
+                            and done.</h3>
+                        <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16"
+                                     fill="#ffffff" aria-label="Share">
+                                    <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718
+                                    3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0
+                                    0 1 11 2.5"/>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                     style="background-image: url('{{ url_for('static', filename='img/pic_3.jpeg') }}');
+                     background-size: cover; background-position: center; position: relative;">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Access anywhere, anytime. Your tasks follow
+                            you.</h3>
+                        <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                     class="bi bi-tablet-fill" viewBox="0 0 16 16">
+                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm7
+                                    11a1 1 0 1 0-2 0 1 1 0 0 0 2 0"/>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
